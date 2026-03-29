@@ -1,0 +1,473 @@
+---------------------------------------
+Begin Slurm Prolog: Mar-28-2026 15:21:03
+Job ID:    4548019
+User ID:   kagrawal74
+Account:   cse
+Job name:  soccerstwos
+Partition: coc-gpu
+QOS:       coc-ice
+---------------------------------------
+
+The following have been reloaded with a version change:
+  1) anaconda3/2023.03 => anaconda3/2022.05.0.1
+
+/usr/local/pace-apps/lmod/lmod/init/bash: line 174: conda: command not found
+/var/lib/slurm/slurmd/job4548019/slurm_script: line 20: /usr/local/pace-apps/manual/packages/anaconda3/2022.05/etc/profile.d/conda.sh: No such file or directory
+2026-03-28 15:21:14,322	INFO scripts.py:795 -- Did not find any active Ray processes.
+2026-03-28 15:21:26,420	INFO services.py:1272 -- View the Ray dashboard at [1m[32mhttp://127.0.0.1:8265[39m[22m
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1774725695.716134 3299038 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+[INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[INFO] Connected new brain: SoccerTwos?team=1
+INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[INFO] Connected new brain: SoccerTwos?team=0
+INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+2026-03-28 15:21:36,890	WARNING sample.py:401 -- DeprecationWarning: wrapping <function policy_mapping_fn at 0x155547bb44c0> with tune.function() is no longer needed
+[2m[36m(pid=3299233)[0m 2026-03-28 15:21:39,951	WARNING ppo.py:135 -- `train_batch_size` (4000) cannot be achieved with your other settings (num_workers=8 num_envs_per_worker=3 rollout_fragment_length=5000)! Auto-adjusting `rollout_fragment_length` to 166.
+[2m[36m(pid=3299221)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[2m[36m(pid=3299221)[0m I0000 00:00:1774725705.230849 3299221 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+[2m[36m(pid=3299236)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[2m[36m(pid=3299236)[0m I0000 00:00:1774725705.273687 3299236 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+[2m[36m(pid=3299199)[0m 2026-03-28 15:21:45,334	ERROR worker.py:409 -- Exception raised in creation task: The actor died because of an error raised in its creation task, [36mray::RolloutWorker.__init__()[39m (pid=3299199, ip=172.27.144.15)
+[2m[36m(pid=3299199)[0m OSError: [Errno 98] Address already in use
+[2m[36m(pid=3299199)[0m 
+[2m[36m(pid=3299199)[0m During handling of the above exception, another exception occurred:
+[2m[36m(pid=3299199)[0m 
+[2m[36m(pid=3299199)[0m [36mray::RolloutWorker.__init__()[39m (pid=3299199, ip=172.27.144.15)
+[2m[36m(pid=3299199)[0m   File "python/ray/_raylet.pyx", line 490, in ray._raylet.execute_task
+[2m[36m(pid=3299199)[0m   File "python/ray/_raylet.pyx", line 497, in ray._raylet.execute_task
+[2m[36m(pid=3299199)[0m   File "python/ray/_raylet.pyx", line 501, in ray._raylet.execute_task
+[2m[36m(pid=3299199)[0m   File "python/ray/_raylet.pyx", line 451, in ray._raylet.execute_task.function_executor
+[2m[36m(pid=3299199)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/_private/function_manager.py", line 563, in actor_method_executor
+[2m[36m(pid=3299199)[0m     return method(__ray_actor, *args, **kwargs)
+[2m[36m(pid=3299199)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/rllib/evaluation/rollout_worker.py", line 384, in __init__
+[2m[36m(pid=3299199)[0m     self.env = _validate_env(env_creator(env_context))
+[2m[36m(pid=3299199)[0m   File "/storage/ice1/1/9/kagrawal74/DRL/soccer-twos-starter/utils.py", line 66, in create_rllib_env
+[2m[36m(pid=3299199)[0m     env = soccer_twos.make(**env_config)
+[2m[36m(pid=3299199)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/soccer_twos/__init__.py", line 89, in make
+[2m[36m(pid=3299199)[0m     unity_env = UnityEnvironment(
+[2m[36m(pid=3299199)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/mlagents_envs/environment.py", line 187, in __init__
+[2m[36m(pid=3299199)[0m     self._communicator = self._get_communicator(worker_id, base_port, timeout_wait)
+[2m[36m(pid=3299199)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/mlagents_envs/environment.py", line 252, in _get_communicator
+[2m[36m(pid=3299199)[0m     return RpcCommunicator(worker_id, base_port, timeout_wait)
+[2m[36m(pid=3299199)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/mlagents_envs/rpc_communicator.py", line 51, in __init__
+[2m[36m(pid=3299199)[0m     self.create_server()
+[2m[36m(pid=3299199)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/mlagents_envs/rpc_communicator.py", line 57, in create_server
+[2m[36m(pid=3299199)[0m     self.check_port(self.port)
+[2m[36m(pid=3299199)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/mlagents_envs/rpc_communicator.py", line 86, in check_port
+[2m[36m(pid=3299199)[0m     raise UnityWorkerInUseException(self.worker_id)
+[2m[36m(pid=3299199)[0m mlagents_envs.exception.UnityWorkerInUseException: Couldn't start socket communication because worker number 12 is still in use. You may need to manually close a previously opened environment or use a different worker number.
+[2m[36m(pid=3299223)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[2m[36m(pid=3299223)[0m I0000 00:00:1774725705.345537 3299223 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+[2m[36m(pid=3299226)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[2m[36m(pid=3299226)[0m I0000 00:00:1774725705.427165 3299226 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+[2m[36m(pid=3299220)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[2m[36m(pid=3299220)[0m I0000 00:00:1774725705.444434 3299220 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+[2m[36m(pid=3299199)[0m Error in atexit._run_exitfuncs:
+[2m[36m(pid=3299199)[0m Traceback (most recent call last):
+[2m[36m(pid=3299199)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/mlagents_envs/environment.py", line 424, in _close
+[2m[36m(pid=3299199)[0m     self._communicator.close()
+[2m[36m(pid=3299199)[0m AttributeError: 'UnityEnvironment' object has no attribute '_communicator'
+[2m[36m(pid=3299235)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[2m[36m(pid=3299235)[0m I0000 00:00:1774725705.474922 3299235 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+[2m[36m(pid=3299231)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[2m[36m(pid=3299231)[0m I0000 00:00:1774725705.468093 3299231 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+[2m[36m(pid=3299221)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299236)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299221)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299221)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299221)[0m 2026-03-28 15:21:46,115	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299236)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299236)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299223)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299221)[0m 2026-03-28 15:21:46,138	INFO torch_policy.py:134 -- TorchPolicy (worker=1) running on CPU.
+[2m[36m(pid=3299236)[0m 2026-03-28 15:21:46,129	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299236)[0m 2026-03-28 15:21:46,152	INFO torch_policy.py:134 -- TorchPolicy (worker=2) running on CPU.
+[2m[36m(pid=3299223)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299223)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299226)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299221)[0m 2026-03-28 15:21:46,201	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299221)[0m 2026-03-28 15:21:46,206	INFO torch_policy.py:134 -- TorchPolicy (worker=1) running on CPU.
+[2m[36m(pid=3299236)[0m 2026-03-28 15:21:46,215	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299236)[0m 2026-03-28 15:21:46,220	INFO torch_policy.py:134 -- TorchPolicy (worker=2) running on CPU.
+[2m[36m(pid=3299223)[0m 2026-03-28 15:21:46,211	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299223)[0m 2026-03-28 15:21:46,233	INFO torch_policy.py:134 -- TorchPolicy (worker=3) running on CPU.
+[2m[36m(pid=3299221)[0m 2026-03-28 15:21:46,266	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299221)[0m 2026-03-28 15:21:46,271	INFO torch_policy.py:134 -- TorchPolicy (worker=1) running on CPU.
+[2m[36m(pid=3299236)[0m 2026-03-28 15:21:46,282	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299236)[0m 2026-03-28 15:21:46,287	INFO torch_policy.py:134 -- TorchPolicy (worker=2) running on CPU.
+[2m[36m(pid=3299226)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299226)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299226)[0m 2026-03-28 15:21:46,278	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299235)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299231)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299221)[0m 2026-03-28 15:21:46,330	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299221)[0m 2026-03-28 15:21:46,336	INFO torch_policy.py:134 -- TorchPolicy (worker=1) running on CPU.
+[2m[36m(pid=3299223)[0m 2026-03-28 15:21:46,301	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299223)[0m 2026-03-28 15:21:46,306	INFO torch_policy.py:134 -- TorchPolicy (worker=3) running on CPU.
+[2m[36m(pid=3299226)[0m 2026-03-28 15:21:46,304	INFO torch_policy.py:134 -- TorchPolicy (worker=7) running on CPU.
+[2m[36m(pid=3299220)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299235)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299235)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299221)[0m I0000 00:00:1774725706.386175 3299221 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+[2m[36m(pid=3299236)[0m 2026-03-28 15:21:46,348	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299236)[0m 2026-03-28 15:21:46,354	INFO torch_policy.py:134 -- TorchPolicy (worker=2) running on CPU.
+[2m[36m(pid=3299223)[0m 2026-03-28 15:21:46,364	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299223)[0m 2026-03-28 15:21:46,368	INFO torch_policy.py:134 -- TorchPolicy (worker=3) running on CPU.
+[2m[36m(pid=3299226)[0m 2026-03-28 15:21:46,366	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299226)[0m 2026-03-28 15:21:46,371	INFO torch_policy.py:134 -- TorchPolicy (worker=7) running on CPU.
+[2m[36m(pid=3299220)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299220)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299235)[0m 2026-03-28 15:21:46,382	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299231)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299231)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299236)[0m I0000 00:00:1774725706.428742 3299236 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+[2m[36m(pid=3299223)[0m 2026-03-28 15:21:46,427	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299223)[0m 2026-03-28 15:21:46,432	INFO torch_policy.py:134 -- TorchPolicy (worker=3) running on CPU.
+[2m[36m(pid=3299226)[0m 2026-03-28 15:21:46,430	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299226)[0m 2026-03-28 15:21:46,435	INFO torch_policy.py:134 -- TorchPolicy (worker=7) running on CPU.
+[2m[36m(pid=3299220)[0m 2026-03-28 15:21:46,427	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299220)[0m 2026-03-28 15:21:46,448	INFO torch_policy.py:134 -- TorchPolicy (worker=6) running on CPU.
+[2m[36m(pid=3299235)[0m 2026-03-28 15:21:46,404	INFO torch_policy.py:134 -- TorchPolicy (worker=8) running on CPU.
+[2m[36m(pid=3299231)[0m 2026-03-28 15:21:46,405	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299231)[0m 2026-03-28 15:21:46,426	INFO torch_policy.py:134 -- TorchPolicy (worker=5) running on CPU.
+[2m[36m(pid=3299226)[0m 2026-03-28 15:21:46,493	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299226)[0m 2026-03-28 15:21:46,498	INFO torch_policy.py:134 -- TorchPolicy (worker=7) running on CPU.
+[2m[36m(pid=3299235)[0m 2026-03-28 15:21:46,469	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299235)[0m 2026-03-28 15:21:46,474	INFO torch_policy.py:134 -- TorchPolicy (worker=8) running on CPU.
+[2m[36m(pid=3299231)[0m 2026-03-28 15:21:46,490	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299231)[0m 2026-03-28 15:21:46,495	INFO torch_policy.py:134 -- TorchPolicy (worker=5) running on CPU.
+[2m[36m(pid=3299220)[0m 2026-03-28 15:21:46,512	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299220)[0m 2026-03-28 15:21:46,517	INFO torch_policy.py:134 -- TorchPolicy (worker=6) running on CPU.
+[2m[36m(pid=3299235)[0m 2026-03-28 15:21:46,531	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299235)[0m 2026-03-28 15:21:46,536	INFO torch_policy.py:134 -- TorchPolicy (worker=8) running on CPU.
+[2m[36m(pid=3299231)[0m 2026-03-28 15:21:46,554	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299220)[0m 2026-03-28 15:21:46,574	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299220)[0m 2026-03-28 15:21:46,579	INFO torch_policy.py:134 -- TorchPolicy (worker=6) running on CPU.
+[2m[36m(pid=3299235)[0m 2026-03-28 15:21:46,593	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299235)[0m 2026-03-28 15:21:46,598	INFO torch_policy.py:134 -- TorchPolicy (worker=8) running on CPU.
+[2m[36m(pid=3299231)[0m 2026-03-28 15:21:46,559	INFO torch_policy.py:134 -- TorchPolicy (worker=5) running on CPU.
+[2m[36m(pid=3299220)[0m 2026-03-28 15:21:46,636	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299220)[0m 2026-03-28 15:21:46,640	INFO torch_policy.py:134 -- TorchPolicy (worker=6) running on CPU.
+[2m[36m(pid=3299231)[0m 2026-03-28 15:21:46,616	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299231)[0m 2026-03-28 15:21:46,620	INFO torch_policy.py:134 -- TorchPolicy (worker=5) running on CPU.
+[2m[36m(pid=3299221)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299236)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299221)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299221)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299236)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299236)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299223)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299223)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299223)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299223)[0m I0000 00:00:1774725707.737143 3299223 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+[2m[36m(pid=3299226)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299226)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299226)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299226)[0m I0000 00:00:1774725707.817114 3299226 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+[2m[36m(pid=3299220)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299235)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299231)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299220)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299220)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299235)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299235)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299235)[0m I0000 00:00:1774725707.954109 3299235 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+[2m[36m(pid=3299231)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299231)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299220)[0m I0000 00:00:1774725707.979891 3299220 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+[2m[36m(pid=3299231)[0m I0000 00:00:1774725707.971989 3299231 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+[2m[36m(pid=3299236)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299221)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299221)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299221)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299236)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299236)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299233)[0m 2026-03-28 15:21:48,421	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299233)[0m 2026-03-28 15:21:48,460	INFO torch_policy.py:148 -- TorchPolicy (worker=local) running on 1 GPU(s).
+[2m[36m(pid=3299223)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299223)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299223)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299226)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299226)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299226)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299220)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299235)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299231)[0m INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299235)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299235)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299220)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299220)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299231)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299231)[0m INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299233)[0m 2026-03-28 15:21:52,120	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299233)[0m 2026-03-28 15:21:52,125	INFO torch_policy.py:148 -- TorchPolicy (worker=local) running on 1 GPU(s).
+[2m[36m(pid=3299233)[0m 2026-03-28 15:21:52,187	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299233)[0m 2026-03-28 15:21:52,192	INFO torch_policy.py:148 -- TorchPolicy (worker=local) running on 1 GPU(s).
+[2m[36m(pid=3299233)[0m 2026-03-28 15:21:52,255	INFO ppo_tf_policy.py:327 -- `vf_share_layers=True` in your model. Therefore, remember to tune the value of `vf_loss_coeff`!
+[2m[36m(pid=3299233)[0m 2026-03-28 15:21:52,260	INFO torch_policy.py:148 -- TorchPolicy (worker=local) running on 1 GPU(s).
+2026-03-28 15:21:52,335	ERROR trial_runner.py:748 -- Trial PPO_Soccer_56e2a_00000: Error processing event.
+Traceback (most recent call last):
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/tune/trial_runner.py", line 718, in _process_trial
+    results = self.trial_executor.fetch_result(trial)
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/tune/ray_trial_executor.py", line 688, in fetch_result
+    result = ray.get(trial_future[0], timeout=DEFAULT_GET_TIMEOUT)
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/_private/client_mode_hook.py", line 62, in wrapper
+    return func(*args, **kwargs)
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/worker.py", line 1494, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError: [36mray::PPO.train_buffered()[39m (pid=3299233, ip=172.27.144.15)
+  File "python/ray/_raylet.pyx", line 501, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 451, in ray._raylet.execute_task.function_executor
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/_private/function_manager.py", line 563, in actor_method_executor
+    return method(__ray_actor, *args, **kwargs)
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/tune/trainable.py", line 173, in train_buffered
+    result = self.train()
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/rllib/agents/trainer.py", line 605, in train
+    raise e
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/rllib/agents/trainer.py", line 594, in train
+    result = Trainable.train(self)
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/tune/trainable.py", line 232, in train
+    result = self.step()
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/rllib/agents/trainer_template.py", line 173, in step
+    res = next(self.train_exec_impl)
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/util/iter.py", line 756, in __next__
+    return next(self.built_iterator)
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/util/iter.py", line 783, in apply_foreach
+    for item in it:
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/util/iter.py", line 783, in apply_foreach
+    for item in it:
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/util/iter.py", line 843, in apply_filter
+    for item in it:
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/util/iter.py", line 843, in apply_filter
+    for item in it:
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/util/iter.py", line 783, in apply_foreach
+    for item in it:
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/util/iter.py", line 783, in apply_foreach
+    for item in it:
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/util/iter.py", line 783, in apply_foreach
+    for item in it:
+  [Previous line repeated 1 more time]
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/util/iter.py", line 876, in apply_flatten
+    for item in it:
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/util/iter.py", line 828, in add_wait_hooks
+    item = next(it)
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/util/iter.py", line 783, in apply_foreach
+    for item in it:
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/util/iter.py", line 783, in apply_foreach
+    for item in it:
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/util/iter.py", line 783, in apply_foreach
+    for item in it:
+  [Previous line repeated 1 more time]
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/util/iter.py", line 466, in base_iterator
+    actor_set.init_actors()
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/util/iter.py", line 1237, in init_actors
+    ray.get([a.par_iter_init.remote(self.transforms) for a in self.actors])
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/_private/client_mode_hook.py", line 62, in wrapper
+    return func(*args, **kwargs)
+ray.exceptions.RayActorError: The actor died because of an error raised in its creation task, [36mray::RolloutWorker.__init__()[39m (pid=3299199, ip=172.27.144.15)
+OSError: [Errno 98] Address already in use
+
+During handling of the above exception, another exception occurred:
+
+[36mray::RolloutWorker.__init__()[39m (pid=3299199, ip=172.27.144.15)
+  File "python/ray/_raylet.pyx", line 490, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 497, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 501, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 451, in ray._raylet.execute_task.function_executor
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/_private/function_manager.py", line 563, in actor_method_executor
+    return method(__ray_actor, *args, **kwargs)
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/rllib/evaluation/rollout_worker.py", line 384, in __init__
+    self.env = _validate_env(env_creator(env_context))
+  File "/storage/ice1/1/9/kagrawal74/DRL/soccer-twos-starter/utils.py", line 66, in create_rllib_env
+    env = soccer_twos.make(**env_config)
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/soccer_twos/__init__.py", line 89, in make
+    unity_env = UnityEnvironment(
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/mlagents_envs/environment.py", line 187, in __init__
+    self._communicator = self._get_communicator(worker_id, base_port, timeout_wait)
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/mlagents_envs/environment.py", line 252, in _get_communicator
+    return RpcCommunicator(worker_id, base_port, timeout_wait)
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/mlagents_envs/rpc_communicator.py", line 51, in __init__
+    self.create_server()
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/mlagents_envs/rpc_communicator.py", line 57, in create_server
+    self.check_port(self.port)
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/mlagents_envs/rpc_communicator.py", line 86, in check_port
+    raise UnityWorkerInUseException(self.worker_id)
+mlagents_envs.exception.UnityWorkerInUseException: Couldn't start socket communication because worker number 12 is still in use. You may need to manually close a previously opened environment or use a different worker number.
+[2m[36m(pid=3299233)[0m 2026-03-28 15:21:52,312	INFO rollout_worker.py:1199 -- Built policy map: {'default': <ray.rllib.policy.policy_template.PPOTorchPolicy object at 0x1547ba7aa8e0>, 'opponent_1': <ray.rllib.policy.policy_template.PPOTorchPolicy object at 0x1547b93615e0>, 'opponent_2': <ray.rllib.policy.policy_template.PPOTorchPolicy object at 0x1547b8a0d7f0>, 'opponent_3': <ray.rllib.policy.policy_template.PPOTorchPolicy object at 0x1547b8a0f7c0>}
+[2m[36m(pid=3299233)[0m 2026-03-28 15:21:52,312	INFO rollout_worker.py:1200 -- Built preprocessor map: {'default': <ray.rllib.models.preprocessors.NoPreprocessor object at 0x1547ba7aa670>, 'opponent_1': <ray.rllib.models.preprocessors.NoPreprocessor object at 0x1547b93491c0>, 'opponent_2': <ray.rllib.models.preprocessors.NoPreprocessor object at 0x1547b8a08310>, 'opponent_3': <ray.rllib.models.preprocessors.NoPreprocessor object at 0x1547b89b0f70>}
+[2m[36m(pid=3299233)[0m 2026-03-28 15:21:52,312	INFO rollout_worker.py:583 -- Built filter map: {'default': <ray.rllib.utils.filter.NoFilter object at 0x1547ba7aa640>, 'opponent_1': <ray.rllib.utils.filter.NoFilter object at 0x1547b8a0f9d0>, 'opponent_2': <ray.rllib.utils.filter.NoFilter object at 0x1547b89b25b0>, 'opponent_3': <ray.rllib.utils.filter.NoFilter object at 0x1547b89b22b0>}
+[2m[36m(pid=3299233)[0m 2026-03-28 15:21:52,319	INFO trainable.py:101 -- Trainable.setup took 12.441 seconds. If your trainable is slow to initialize, consider setting reuse_actors=True to reduce actor creation overheads.
+[2m[36m(pid=3299233)[0m 2026-03-28 15:21:52,319	WARNING util.py:53 -- Install gputil for GPU system monitoring.
+[2m[36m(pid=3299233)[0m 2026-03-28 15:21:52,328	INFO trainer.py:601 -- Worker crashed during call to train(). To attempt to continue training without the failed worker, set `'ignore_worker_failures': True`.
+[2m[36m(pid=3299233)[0m 2026-03-28 15:21:54,126	ERROR worker_set.py:153 -- Failed to stop workers
+[2m[36m(pid=3299233)[0m Traceback (most recent call last):
+[2m[36m(pid=3299233)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/rllib/evaluation/worker_set.py", line 151, in stop
+[2m[36m(pid=3299233)[0m     ray.get(tids)
+[2m[36m(pid=3299233)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/_private/client_mode_hook.py", line 62, in wrapper
+[2m[36m(pid=3299233)[0m     return func(*args, **kwargs)
+[2m[36m(pid=3299233)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/worker.py", line 1496, in get
+[2m[36m(pid=3299233)[0m     raise value
+[2m[36m(pid=3299233)[0m ray.exceptions.RayActorError: The actor died because of an error raised in its creation task, [36mray::RolloutWorker.__init__()[39m (pid=3299199, ip=172.27.144.15)
+[2m[36m(pid=3299233)[0m OSError: [Errno 98] Address already in use
+[2m[36m(pid=3299233)[0m 
+[2m[36m(pid=3299233)[0m During handling of the above exception, another exception occurred:
+[2m[36m(pid=3299233)[0m 
+[2m[36m(pid=3299233)[0m [36mray::RolloutWorker.__init__()[39m (pid=3299199, ip=172.27.144.15)
+[2m[36m(pid=3299233)[0m   File "python/ray/_raylet.pyx", line 490, in ray._raylet.execute_task
+[2m[36m(pid=3299233)[0m   File "python/ray/_raylet.pyx", line 497, in ray._raylet.execute_task
+[2m[36m(pid=3299233)[0m   File "python/ray/_raylet.pyx", line 501, in ray._raylet.execute_task
+[2m[36m(pid=3299233)[0m   File "python/ray/_raylet.pyx", line 451, in ray._raylet.execute_task.function_executor
+[2m[36m(pid=3299233)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/_private/function_manager.py", line 563, in actor_method_executor
+[2m[36m(pid=3299233)[0m     return method(__ray_actor, *args, **kwargs)
+[2m[36m(pid=3299233)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/rllib/evaluation/rollout_worker.py", line 384, in __init__
+[2m[36m(pid=3299233)[0m     self.env = _validate_env(env_creator(env_context))
+[2m[36m(pid=3299233)[0m   File "/storage/ice1/1/9/kagrawal74/DRL/soccer-twos-starter/utils.py", line 66, in create_rllib_env
+[2m[36m(pid=3299233)[0m     env = soccer_twos.make(**env_config)
+[2m[36m(pid=3299233)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/soccer_twos/__init__.py", line 89, in make
+[2m[36m(pid=3299233)[0m     unity_env = UnityEnvironment(
+[2m[36m(pid=3299233)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/mlagents_envs/environment.py", line 187, in __init__
+[2m[36m(pid=3299233)[0m     self._communicator = self._get_communicator(worker_id, base_port, timeout_wait)
+[2m[36m(pid=3299233)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/mlagents_envs/environment.py", line 252, in _get_communicator
+[2m[36m(pid=3299233)[0m     return RpcCommunicator(worker_id, base_port, timeout_wait)
+[2m[36m(pid=3299233)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/mlagents_envs/rpc_communicator.py", line 51, in __init__
+[2m[36m(pid=3299233)[0m     self.create_server()
+[2m[36m(pid=3299233)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/mlagents_envs/rpc_communicator.py", line 57, in create_server
+[2m[36m(pid=3299233)[0m     self.check_port(self.port)
+[2m[36m(pid=3299233)[0m   File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/mlagents_envs/rpc_communicator.py", line 86, in check_port
+[2m[36m(pid=3299233)[0m     raise UnityWorkerInUseException(self.worker_id)
+[2m[36m(pid=3299233)[0m mlagents_envs.exception.UnityWorkerInUseException: Couldn't start socket communication because worker number 12 is still in use. You may need to manually close a previously opened environment or use a different worker number.
+== Status ==
+Memory usage on this node: 18.5/187.0 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 0/40 CPUs, 0/1 GPUs, 0.0/111.23 GiB heap, 0.0/51.66 GiB objects (0.0/1.0 accelerator_type:V100)
+Result logdir: /home/hice1/kagrawal74/scratch/DRL/ray_results/PPO_selfplay_rec
+Number of trials: 1/1 (1 PENDING)
++------------------------+----------+-------+
+| Trial name             | status   | loc   |
+|------------------------+----------+-------|
+| PPO_Soccer_56e2a_00000 | PENDING  |       |
++------------------------+----------+-------+
+
+
+[2m[36m(pid=3299236)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299221)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299236)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299236)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299221)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299221)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299223)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299223)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299223)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299226)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299226)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299226)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299235)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299231)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299235)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299235)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299220)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299231)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299231)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299220)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299220)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299221)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299236)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299236)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299236)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299221)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299221)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299223)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299223)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299223)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299226)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299226)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299226)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299235)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299220)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299231)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299235)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299235)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299231)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299231)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299220)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299220)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299236)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299221)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299236)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299236)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299221)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299221)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299223)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299223)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299223)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299226)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299226)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299226)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299235)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299231)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299220)[0m [INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[2m[36m(pid=3299235)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299235)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299231)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299231)[0m [INFO] Connected new brain: SoccerTwos?team=0
+[2m[36m(pid=3299220)[0m [INFO] Connected new brain: SoccerTwos?team=1
+[2m[36m(pid=3299220)[0m [INFO] Connected new brain: SoccerTwos?team=0
+Result for PPO_Soccer_56e2a_00000:
+  {}
+  
+== Status ==
+Memory usage on this node: 23.6/187.0 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 0/40 CPUs, 0/1 GPUs, 0.0/111.23 GiB heap, 0.0/51.66 GiB objects (0.0/1.0 accelerator_type:V100)
+Result logdir: /home/hice1/kagrawal74/scratch/DRL/ray_results/PPO_selfplay_rec
+Number of trials: 1/1 (1 ERROR)
++------------------------+----------+-------+
+| Trial name             | status   | loc   |
+|------------------------+----------+-------|
+| PPO_Soccer_56e2a_00000 | ERROR    |       |
++------------------------+----------+-------+
+Number of errored trials: 1
++------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+| Trial name             |   # failures | error file                                                                                                             |
+|------------------------+--------------+------------------------------------------------------------------------------------------------------------------------|
+| PPO_Soccer_56e2a_00000 |            1 | /home/hice1/kagrawal74/scratch/DRL/ray_results/PPO_selfplay_rec/PPO_Soccer_56e2a_00000_0_2026-03-28_15-21-37/error.txt |
++------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+
+== Status ==
+Memory usage on this node: 23.6/187.0 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 0/40 CPUs, 0/1 GPUs, 0.0/111.23 GiB heap, 0.0/51.66 GiB objects (0.0/1.0 accelerator_type:V100)
+Result logdir: /home/hice1/kagrawal74/scratch/DRL/ray_results/PPO_selfplay_rec
+Number of trials: 1/1 (1 ERROR)
++------------------------+----------+-------+
+| Trial name             | status   | loc   |
+|------------------------+----------+-------|
+| PPO_Soccer_56e2a_00000 | ERROR    |       |
++------------------------+----------+-------+
+Number of errored trials: 1
++------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+| Trial name             |   # failures | error file                                                                                                             |
+|------------------------+--------------+------------------------------------------------------------------------------------------------------------------------|
+| PPO_Soccer_56e2a_00000 |            1 | /home/hice1/kagrawal74/scratch/DRL/ray_results/PPO_selfplay_rec/PPO_Soccer_56e2a_00000_0_2026-03-28_15-21-37/error.txt |
++------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+
+Traceback (most recent call last):
+  File "train_ray_selfplay.py", line 48, in <module>
+    analysis = tune.run(
+  File "/home/hice1/kagrawal74/.conda/envs/soccertwos/lib/python3.8/site-packages/ray/tune/tune.py", line 543, in run
+    raise TuneError("Trials did not complete", incomplete_trials)
+ray.tune.error.TuneError: ('Trials did not complete', [PPO_Soccer_56e2a_00000])
+---------------------------------------
+Begin Slurm Epilog: Mar-28-2026 15:21:57
+Job ID:        4548019
+User ID:       kagrawal74
+Account:       cse
+Job name:      soccerstwos
+Resources:     cpu=8,gres/gpu:v100=1,mem=48G,node=1
+Rsrc Used:     cput=00:07:12,vmem=0,walltime=00:00:54,mem=7594064K,energy_used=0
+Partition:     coc-gpu
+QOS:           coc-ice
+Nodes:         atl1-1-01-002-6-0
+---------------------------------------

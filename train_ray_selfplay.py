@@ -5,17 +5,17 @@ from ray.rllib.agents.callbacks import DefaultCallbacks
 from utils import create_rllib_env
 
 
-NUM_ENVS_PER_WORKER = 3
+NUM_ENVS_PER_WORKER = 5
 
 
 def policy_mapping_fn(agent_id, *args, **kwargs):
-    if agent_id == 0:
+    if agent_id in [0,1]:
         return "default"  # Choose 01 policy for agent_01
     else:
         return np.random.choice(
-            ["default", "opponent_1", "opponent_2", "opponent_3"],
+            ["opponent_1", "opponent_2", "opponent_3"],
             size=1,
-            p=[0.50, 0.25, 0.125, 0.125],
+            p=[0.50, 0.25, 0.25],
         )[0]
 
 
@@ -24,7 +24,7 @@ class SelfPlayUpdateCallback(DefaultCallbacks):
         """
         Update multiagent oponent weights when reward is high enough
         """
-        if info["result"]["episode_reward_mean"] > 0.5:
+        if info["result"]["episode_reward_mean"] > 0.2:
             print("---- Updating opponents!!! ----")
             trainer = info["trainer"]
             trainer.set_weights(
@@ -40,7 +40,7 @@ if __name__ == "__main__":
     ray.init()
 
     tune.registry.register_env("Soccer", create_rllib_env)
-    temp_env = create_rllib_env()
+    temp_env = create_rllib_env({"base_port": 6099})
     obs_space = temp_env.observation_space
     act_space = temp_env.action_space
     temp_env.close()
@@ -68,7 +68,10 @@ if __name__ == "__main__":
                 "policies_to_train": ["default"],
             },
             "env": "Soccer",
-            "env_config": {"num_envs_per_worker": NUM_ENVS_PER_WORKER,},
+            "env_config": {"num_envs_per_worker": NUM_ENVS_PER_WORKER,"base_port": 6100,
+            "ball_progress_weight": 0.001,
+            "ball_to_goal_weight": 0.001,
+            },
             "model": {
                 "vf_share_layers": True,
                 "fcnet_hiddens": [256, 256],
@@ -77,11 +80,14 @@ if __name__ == "__main__":
             "rollout_fragment_length": 5000,
             "batch_mode": "complete_episodes",
         },
-        stop={"timesteps_total": 15000000, "time_total_s": 7200,},  # 2h
+        stop={"timesteps_total": 15000000, 
+        #"time_total_s": 64800,
+        },  # 18h
         checkpoint_freq=100,
+        keep_checkpoints_num=5,
         checkpoint_at_end=True,
-        local_dir="./ray_results",
-        # restore="./ray_results/PPO_selfplay_twos_2/PPO_Soccer_a8b44_00000_0_2021-09-18_11-13-55/checkpoint_000600/checkpoint-600",
+        local_dir="/home/hice1/kagrawal74/scratch/DRL/ray_results",
+        restore="/home/hice1/kagrawal74/scratch/DRL/ray_results/PPO_selfplay_rec/PPO_Soccer_edcea_00000_0_2026-03-29_16-36-14/checkpoint_001000/checkpoint-1000",
     )
 
     # Gets best trial based on max accuracy across all training iterations.

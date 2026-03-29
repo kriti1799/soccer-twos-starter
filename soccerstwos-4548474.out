@@ -1,0 +1,39 @@
+---------------------------------------
+Begin Slurm Prolog: Mar-28-2026 17:35:15
+Job ID:    4548474
+User ID:   kagrawal74
+Account:   cse
+Job name:  soccerstwos
+Partition: coc-gpu
+QOS:       coc-ice
+---------------------------------------
+
+The following have been reloaded with a version change:
+  1) anaconda3/2023.03 => anaconda3/2022.05.0.1
+
+/usr/local/pace-apps/lmod/lmod/init/bash: line 174: conda: command not found
+/var/lib/slurm/slurmd/job4548474/slurm_script: line 20: /usr/local/pace-apps/manual/packages/anaconda3/2022.05/etc/profile.d/conda.sh: No such file or directory
+2026-03-28 17:35:26,576	INFO scripts.py:795 -- Did not find any active Ray processes.
+2026-03-28 17:35:38,585	INFO services.py:1272 -- View the Ray dashboard at [1m[32mhttp://127.0.0.1:8265[39m[22m
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1774733747.146378 3348910 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+[INFO] Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+INFO:mlagents_envs.environment:Connected to Unity environment with package version 2.1.0-exp.1 and communication version 1.5.0
+[INFO] Connected new brain: SoccerTwos?team=1
+INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=1
+[INFO] Connected new brain: SoccerTwos?team=0
+INFO:mlagents_envs.environment:Connected new brain: SoccerTwos?team=0
+2026-03-28 17:35:48,325	WARNING sample.py:401 -- DeprecationWarning: wrapping <function policy_mapping_fn at 0x155547bb44c0> with tune.function() is no longer needed
+[2026-03-28T18:20:02.080] error: *** JOB 4548474 ON atl1-1-01-002-6-0 CANCELLED AT 2026-03-28T18:20:02 DUE to SIGNAL Terminated ***
+---------------------------------------
+Begin Slurm Epilog: Mar-28-2026 18:20:04
+Job ID:        4548474
+User ID:       kagrawal74
+Account:       cse
+Job name:      soccerstwos
+Resources:     cpu=8,gres/gpu:v100=1,mem=48G,node=1
+Rsrc Used:     cput=05:58:16,vmem=0,walltime=00:44:47,mem=9733112K,energy_used=0
+Partition:     coc-gpu
+QOS:           coc-ice
+Nodes:         atl1-1-01-002-6-0
+---------------------------------------

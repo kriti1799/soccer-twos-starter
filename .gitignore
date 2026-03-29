@@ -7,6 +7,9 @@ data/
 __pycache__/
 *.py[cod]
 *$py.class
+*.log
+*.pyc
+.ipynb_checkpoints/
 
 # C extensions
 *.so
